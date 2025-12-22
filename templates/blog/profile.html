@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}Профиль {{ profile_user.username }}{% endblock %}
+{% block content %}
+  <h1>Профиль {{ profile_user.username }}</h1>
+  <p>Имя: {{ profile_user.first_name }} {{ profile_user.last_name }}</p>
+  <p>Email: {{ profile_user.email }}</p>
+  {% if request.user.is_authenticated and request.user == profile_user %}
+    <a href="{% url 'blog:edit_profile' profile_user.username %}" class="btn btn-primary">Редактировать профиль</a>
+    <a href="{% url 'password_change' %}" class="btn btn-secondary">Изменить пароль</a>
+  {% endif %}
+
+  <h2 class="mt-4">Публикации</h2>
+  {% for post in post_list %}
+    <article class="mb-4">{% include "includes/post_card.html" %}</article>
+  {% endfor %}
+
+  <nav aria-label="Page navigation">
+    <ul class="pagination">
+      {% if post_list.has_previous %}
+        <li class="page-item"><a class="page-link" href="?page={{ post_list.previous_page_number }}">Предыдущая</a></li>
+      {% endif %}
+      <li class="page-item disabled"><span class="page-link">Стр. {{ post_list.number }} из {{ post_list.paginator.num_pages }}</span></li>
+      {% if post_list.has_next %}
+        <li class="page-item"><a class="page-link" href="?page={{ post_list.next_page_number }}">Следующая</a></li>
+      {% endif %}
+    </ul>
+  </nav>
+{% endblock %}

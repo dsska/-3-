@@ -1,0 +1,1 @@
+POSTS_MAIN_PAGE = 10

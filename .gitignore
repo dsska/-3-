@@ -1,0 +1,8 @@
+venv/
+*.pyc
+__pycache__/
+db.sqlite3
+sent_emails/
+static/
+static-dev/
+html/

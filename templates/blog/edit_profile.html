@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %}Редактировать профиль{% endblock %}
+{% block content %}
+  <h1>Редактировать профиль</h1>
+  <form method="post">{% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Сохранить</button>
+    <a href="{% url 'blog:profile' profile_user.username %}" class="btn btn-secondary">Отмена</a>
+  </form>
+{% endblock %}
