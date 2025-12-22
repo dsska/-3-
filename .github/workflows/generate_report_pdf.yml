@@ -21,6 +21,12 @@ jobs:
         run: |
           pandoc "REPORT_Блогикум_Часть3_для_проекта.md" -o "REPORT_Блогикум_Часть3_для_проекта.pdf" --pdf-engine=pdflatex
 
+      - name: Upload PDF as workflow artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: report-pdf
+          path: REPORT_Блогикум_Часть3_для_проекта.pdf
+
       - name: Commit and push PDF
         run: |
           git config user.name "github-actions[bot]"
