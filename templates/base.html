@@ -11,8 +11,16 @@
     <title>
       {% block title %}{% endblock %}
     </title>
-    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <!-- Bootstrap via CDN (works without local static files) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-qENq0s9cKc9s8jg8K4aZx5c4xQY5m5E4h7j6u8G9r0L1b2c3d4e5f6g7h8i9j0k" crossorigin="anonymous">
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Optional local stylesheet (overrides CDN styles if present) -->
+    <link rel="stylesheet" href="{% static 'css/site.css' %}">
   </head>
+  <body>
+    <!-- Bootstrap JS (bundle includes Popper) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-..." crossorigin="anonymous"></script>
   <body>
     {% include "includes/header.html" %}
     <main>

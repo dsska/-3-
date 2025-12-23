@@ -1,0 +1,37 @@
+/* Basic overrides for project */
+:root{
+  --brand-blue:#7fd0ff;
+  --brand-dark:#123;
+}
+html,body{height:100%;}
+body {
+  background: #f3f6fa;
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  color: #222;
+}
+/* Header */
+.navbar{background:var(--brand-blue); padding:0.5rem 0;}
+.navbar .container{display:flex;align-items:center;gap:1rem}
+.navbar-brand{display:flex;align-items:center;gap:.6rem;font-weight:600;color:var(--brand-dark)}
+.navbar-brand img{border-radius:50%;background:#fff;padding:2px}
+.nav .nav{display:flex}
+.nav-pills .nav-link{color:rgba(0,0,0,0.65);border-radius:6px}
+.nav-pills .nav-link.active{background:transparent;color:#0b63a8;font-weight:600}
+.navbar .container > div:last-child{margin-left:auto}
+.btn-outline-light{color:#0b63a8;border-color:rgba(255,255,255,0.7);background:rgba(255,255,255,0.1);padding:.35rem .6rem;border-radius:6px}
+.btn-outline-light:hover{background:rgba(255,255,255,0.2)}
+/* Cards */
+.card{max-width:720px;margin:1.5rem auto;border-radius:6px;box-shadow:0 2px 6px rgba(0,0,0,0.05)}
+.card-img-top{width:100%;height:360px;object-fit:cover;border-top-left-radius:6px;border-top-right-radius:6px}
+.card-body{padding:1rem 1.25rem}
+.card-title{font-weight:600;margin-bottom:.25rem}
+.card-subtitle small{color:#666}
+.card .card-text{color:#444}
+/* Page container */
+.container.py-5{max-width:760px}
+footer{margin-top:3rem;padding:1.5rem 0;background:#fff}
+/* small screens */
+@media (max-width:768px){
+  .card-img-top{height:220px}
+  .container.py-5{padding-left:1rem;padding-right:1rem}
+}
