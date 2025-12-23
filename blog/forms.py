@@ -22,6 +22,12 @@ class PostForm(forms.ModelForm):
             'pub_date': forms.DateTimeInput(attrs={'type': 'datetime-local'}),
         }
 
+    def clean_image(self):
+        image = self.cleaned_data.get('image')
+        if image and image.size > 2 * 1024 * 1024:
+            raise forms.ValidationError('Файл слишком большой (макс 2MB).')
+        return image
+
 
 class CommentForm(forms.ModelForm):
     class Meta:
